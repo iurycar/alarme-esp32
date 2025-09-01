@@ -34,11 +34,19 @@ O script realiza as seguintes etapas:
 
 ## Como usar
 
-#### 1.Carregue o código no ESP32
+#### 1. Carregue o código no ESP32
 1. Abra o arquivo `alarme_esp32.ino` na IDE do Arduino.
 2. Instale a biblioteca `WebServer` se ainda não a tiver.
 3. Modifique o `ssid` e `password` no código para as credenciais da sua rede Wi-Fi.
 4. Defina um **token de autenticação** na constante `AUTH_TOKEN`.
 5. Conecte o ESP32 ao seu computador e carregue o código.
 
-#### 2. Ative o alarme
+#### 2. Ative e desative o alarme
+Para ativar o alarme, envie uma requisição HTTP GET para o endereço IP do seu ESP32, incluindo o token de autenticação como um parâmetro de URL.
+
+##### Exemplo de URL:
+`http://[IP_DO_SEU_ESP32]/?token=[SEU_TOKEN]`
+
+A requisição pode ser feita a partir do navegador, um script Python (como mostrado no arquivo `enviarDados.py`) ou qualquer outro cliente HTTP. O alarme será ativado apenas se o token for válido.
+
+Para desativar o alarme pode ser feito manualmente pressionando o botão, ou implementando no código uma requisição para desativar. Por exemplo, adicionando outra rota ao servidor web, como `/desligar`.
