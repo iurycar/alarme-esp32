@@ -83,6 +83,7 @@ void connectWifi() {
 // Inicializa o servidor web e define a rota raiz
 void serverBegin() {
   server.on("/", handleRoot); // Quando acessar a raiz, chama handleeRoot()
+  server.on("/status", handleStatus);
   server.begin();
   Serial.println("Servidor HTTP inicializado.");
 }
@@ -103,6 +104,15 @@ void handleRoot() {
   }else{
     // Se tentar acessar sem o token na requisição devolve
     server.send(400, "text/html", "Acesso nao autorizado: Token faltando.");
+  }
+}
+
+void handleStatus() {
+  if (server.hasArg("token") && server.arg("token") == AUTH_TOKEN) {
+    String jsonResponse = "{\"danificado\": " + String(danificado ? true : false) + "}";
+    server.send(200, "aplication/json", jsonResponse);
+  }else{
+    server.send(401, "text/html", "Acesso não autorizado: Token inválido.");
   }
 }
 

@@ -11,7 +11,7 @@ O projeto de visão computacional inclui um script Python (`enviarDados.py`), re
 #### Script
 
 O script realiza as seguintes etapas:
-1. **Importação da biblioteca `requests`:** Utilizada para fazer requisições HTTP em Python. Pode ser instalada com pip `install requests`.
+1. **Importação da biblioteca `requests`:** Utilizada para fazer requisições HTTP em Python. Pode ser instalada com `pip install requests`.
 2. **Configuração da URL e token:** As constantes `ENDERECO` e `AUTH_TOKEN` são definidas para o endereço IP do ESP32 e o token de autenticação correspondente.
 3. **Envio da requisição:** A função `enviarDados()` utiliza o método `requests.get()`.
 
