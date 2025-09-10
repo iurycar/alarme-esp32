@@ -4,8 +4,8 @@
 WebServer server (80);
 
 // Nome e senha da rede
-const char* ssid = "NET_2G62CDE5";
-const char* password = "bocadobausp";
+const char* ssid = "NOME_DA_REDE_WIFI";
+const char* password = "SENHA_DA_REDE_WIFI";
 
 // Token de autenticação, para evitar erro e acesso indesejados
 const char* AUTH_TOKEN = "A7OmEetdXwYtEJ6b1eVccngugO89WxPm";
